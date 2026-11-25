@@ -57,9 +57,46 @@ Compare the original, opened, and closed images.
 
 ## Developed By
 
-**Name:** ____________________________
+**Name:** R P Loshini
 
-**Register No:** ______________________
+**Register No:** 212225230155
+
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Load input image in grayscale
+img = cv2.imread(r"C:\Users\acer\DIPT\dog.jpg", 0)
+
+# Create structuring element (kernel)
+kernel = np.ones((9, 9), np.uint8)
+
+# Apply Opening and Closing operations
+opened_img = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+closed_img = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+
+# Display Original, Opened, and Closed images side-by-side
+plt.figure(figsize=(15, 5))
+
+plt.subplot(1, 3, 1)
+plt.imshow(img, cmap='gray')
+plt.title("Original Image")
+plt.axis('off')
+
+plt.subplot(1, 3, 2)
+plt.imshow(opened_img, cmap='gray')
+plt.title("Opening Operation")
+plt.axis('off')
+
+plt.subplot(1, 3, 3)
+plt.imshow(closed_img, cmap='gray')
+plt.title("Closing Operation")
+plt.axis('off')
+
+plt.tight_layout()
+plt.show()
+```
 
 ## Output
 
@@ -83,6 +120,9 @@ Compare the original, opened, and closed images.
 - Small holes and gaps inside objects are filled.
 - Broken regions are connected.
 - Object boundaries become more continuous.
+
+<img width="1072" height="385" alt="image" src="https://github.com/user-attachments/assets/fd3fc266-ca4a-4893-8231-8594bef6d639" />
+
 
 ## Applications
 
